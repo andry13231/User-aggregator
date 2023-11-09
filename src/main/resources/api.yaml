@@ -1,0 +1,60 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Users aggregator
+paths:
+  /users:
+    get:
+      summary: Gets aggregated users
+      operationId: users
+      parameters:
+        - name: username
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Aggregated users
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Users"
+  /users/{id}:
+    get:
+      summary: Gets users with id
+      operationId: userById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Users with id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Users"
+components:
+  schemas:
+    User:
+      required:
+        - id
+        - username
+        - name
+        - surname
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+    Users:
+      type: array
+      items:
+        $ref: "#/components/schemas/User"

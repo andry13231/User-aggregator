@@ -1,0 +1,23 @@
+data-sources:
+  - name: data-base-1
+    strategy: postgres
+    url: jdbc:postgresql://127.0.0.1:5432/data-base-1
+    table: users
+    user: test
+    password: test
+    mapping:
+      id: user_id
+      username: login
+      name: first_name
+      surname: last_name
+  - name: data-base-2
+    strategy: oracle
+    url: jdbc:oracle:thin:@127.0.0.1:1521:orcl
+    table: user_table
+    user: c##test_app
+    password: test_pass2
+    mapping:
+      id: ldap_login
+      username: ldap_login
+      name: name
+      surname: surname

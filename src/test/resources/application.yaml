@@ -1,0 +1,23 @@
+data-sources:
+  - name: data-base-1
+    strategy: postgres
+    url: jdbc:tc:postgresql:16.0://localhost;databaseName=test_db_1?user=test_postgres_1&password=pass1test&TC_INITSCRIPT=initPostgres1.sql
+    table: users
+    user: test_postgres_1
+    password: pass1test
+    mapping:
+      id: user_id
+      username: login
+      name: first_name
+      surname: last_name
+  - name: data-base-2
+    strategy: postgres
+    url: jdbc:tc:postgresql:16.0://localhost;databaseName=test_db_2?user=test_postgres_2&password=pass2test&TC_INITSCRIPT=initPostgres2.sql
+    table: user_tab
+    user: test_postgres_2
+    password: pass2test
+    mapping:
+      id: id
+      username: id
+      name: name
+      surname: surname
